@@ -1,0 +1,104 @@
+<div class="container-fluid">
+<div class="container" id="container">
+    <div id="home" class="welcome-area1" >    
+    <div class="">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col form-register rounded-corner">
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm)">
+                <div class="form-group  mb-2">
+                    <label class="text-light mb-2">User Name <span class="text-danger">*</span></label>
+                    <input type="text" formControlName="name" class="form-control bg-dark text-light rounded-corner"
+                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                    <div *ngIf="(f.name.touched || submitted) && f.name.errors?.required" class="invalid-feedback">Name
+                        is required</div>
+
+                </div>
+                <div class="form-group  mb-2">
+                    <label class="text-light mb-2">Email <span class="text-danger">*</span></label>
+                    <input type="email" formControlName="email" class="form-control bg-dark text-light rounded-corner"
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="(f.email.touched || submitted) && f.email.errors?.required" class="invalid-feedback">
+                        Email is required</div>
+                    <div class="invalid-feedback" *ngIf="f.email.errors?.emailNotAvailable">
+                        Email is already registered
+                    </div>
+                    <div class="invalid-feedback" *ngIf="(f.email.touched || submitted) && f.email.errors?.email">
+                        Enter a valid email
+                    </div>
+                </div>
+
+                <div class="form-group  mb-2">
+                    <label class="text-light mb-2">Gender <span class="text-danger">*</span></label>
+                    <select name="gender" id="gender" formControlName="gender" class="form-control bg-dark text-light rounded-corner"
+                        [ngClass]="{ 'is-invalid': submitted && f.gender.errors?.required }">Gender
+                        <option value="MALE">MALE</option>
+                        <option value="FEMALE">FEMALE</option>
+                    </select>
+                    <div *ngIf="(f.gender.touched || submitted) && f.gender.errors?.required" class="invalid-feedback">
+                        Gender is required</div>
+
+                </div>
+                <div class="form-group  mb-2">
+                    <label class="text-light mb-2">Specialization <span class="text-danger">*</span></label>
+                    <input type="text" formControlName="specialization" class="form-control bg-dark text-light rounded-corner"
+                        [ngClass]="{ 'is-invalid': submitted && f.specialization.errors }" />
+
+                    <div *ngIf="(f.specialization.touched || submitted) && f.specialization.errors?.required"
+                        class="invalid-feedback">Specialization is required</div>
+
+
+                </div>
+
+                <div class="form-group  mb-2">
+                    <label class="text-light mb-2">Experience <span class="text-danger">*</span></label>
+                    <input type="number" formControlName="experience" class="form-control bg-dark text-light rounded-corner"
+                        [ngClass]="{ 'is-invalid': submitted && f.experience.errors }" />
+                    <div *ngIf="(f.experience.touched || submitted) && f.experience.errors?.required"
+                        class="invalid-feedback">Experience is required</div>
+
+
+                </div>
+                <div class="form-group">
+                    <label class="text-light mb-2">Password <span class="text-danger">*</span></label>
+                    <input type="password" formControlName="password" class="form-control bg-dark text-light rounded-corner"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div class="invalid-feedback" *ngIf="(f.password.touched || submitted) && f.password.errors?.required">Password is required
+                    </div>
+                    <div class="invalid-feedback" *ngIf="f.password.touched && f.password.errors?.invalidPassword">
+                        Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                        letter and 1 number
+                    </div>
+                </div>
+                <div class="form-group  mb-4">
+                    <label class="text-light mb-2">Confirm Password <span class="text-danger">*</span></label>
+                    <input type="password" formControlName="confirmPassword" class="form-control bg-dark text-light rounded-corner"
+                        [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                    <div class="invalid-feedback"  *ngIf="f.confirmPassword.errors?.required">Password is required</div>
+                    <div class="invalid-feedback" 
+                        *ngIf="f.confirmPassword.touched && f.confirmPassword.errors?.invalidPassword">
+                        Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                        letter and 1 number
+                    </div>
+                    <div class="invalid-feedback" 
+                        *ngIf="f.confirmPassword.touched && f.confirmPassword.errors?.passwordMismatch">
+                        Passwords does not match
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button class="btn btn-success">Register</button>
+                    <!-- <button [disabled]="registerForm.invalid" class="btn btn-primary">Register</button> -->
+                </div>
+            </form>
+        </div>
+        <div class="col mx-5 heading">
+            <div class="contents">
+                <p class="head-title font-weight-light" style="color: #2B2E4A;">Welcome to<br>Tutor Management system<br></p>
+              </div>
+          </div>
+    </div>
+</div>
+</div>

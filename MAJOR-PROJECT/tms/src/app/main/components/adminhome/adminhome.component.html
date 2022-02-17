@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 px-0 bg-dark"> 
+            <div class="accordion py-5" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed bg-dark text-light border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <div class="w-100 text-center">
+                            Tutors
+                        </div>
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body bg-dark">
+                        <ul class="navbar-nav w-100 text-center">
+                            <li class="nav-item border-bottom py-2 my-2">
+                                <a class="nav-link text-light" routerLink="/adminhome/admin/approvedTutors">Approved Tutors</a>
+                            </li>
+                            <li class="nav-item border-bottom py-2 my-2">
+                                <a class="nav-link text-light" routerLink="/adminhome/admin/rejectedTutors">Rejected Tutors</a>
+                            </li>
+                            <li class="nav-item border-bottom py-2 my-2">
+                                <a class="nav-link text-light" routerLink="/adminhome/admin/blockedTutors">Block Approved Tutors</a>
+                            </li>
+                            <li class="nav-item py-2 my-2">
+                                <a class="nav-link text-light" routerLink="/adminhome/admin/pendingTutors">Pending Registration Tutors</a>
+                            </li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed bg-dark text-light border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <div class="w-100 text-center">
+                            Students
+                        </div>
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body bg-dark">
+                        <ul class="navbar-nav w-100 text-center">
+                            <li class="nav-item border-bottom py-2 my-2">
+                                <a class="nav-link text-light" routerLink="/adminhome/admin/approvedStudent">Approved Students</a>
+                            </li>
+                            <li class="nav-item border-bottom py-2 my-2">
+                                <a class="nav-link text-light" routerLink="/adminhome/admin/rejectedStudent">Rejected Students</a>
+                            </li>
+                            <li class="nav-item border-bottom py-2 my-2">
+                                <a class="nav-link text-light" routerLink="/adminhome/admin/blockStudent">Block Approved Students</a>
+                            </li>
+                            <li class="nav-item py-2 my-2">
+                                <a class="nav-link text-light" routerLink="/adminhome/admin/studentApproval">Pending Registration Students</a>
+                            </li>
+                        </ul>  
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header text-light" id="headingThree">
+                    <button class="accordion-button collapsed bg-dark text-light border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                     <div class="w-100 text-center">
+                        Reports
+                     </div>
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body bg-dark">
+                        <ul class="navbar-nav w-100 text-center">
+                            <li class="nav-item py-1 my-1">
+                                <a class="nav-link text-light" routerLink="/adminhome/admin/reports">Reports</a>
+                            </li>
+                        </ul>  
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-10 dashboardContent text-center pt-5">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container-fluid">
+<div class="container" id="container">
+    <div id="home" class="welcome-area" >    
+    <div class="">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+      <div class="row">
+          <div class="col mx-5 form-signin rounded-corner">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
+                <div class="form-group mb-2">
+                    <label class="text-light mb-2">Email</label>
+                    <input type="text" formControlName="email" class="form-control bg-dark text-light rounded-corner py-2" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="text-light mb-2">Password</label>
+                    <input type="password" formControlName="password" class="form-control bg-dark text-light rounded-corner py-2" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                
+                <div class="form-group text-center">
+                    <button [disabled]="loginForm.invalid" class="btn btn-success rounded-3">Login</button>
+                </div>
+            </form>
+          </div>
+          <div class="col mx-5 heading">
+            <div class="contents">
+                <p class="head-title font-weight-light" style="color: #2B2E4A;">Welcome to<br>Tutor Management system<br></p>
+              </div>
+          </div>
+      </div>
+      </div>
+
+
+    
+    </div>

@@ -1,0 +1,52 @@
+<div class="container-fluid" style="text-align: center;">
+        <h3 class="header text-center mb-5 display-6 fw-bolder">ADD TECHNOLOGY</h3>
+        <form [formGroup]="techForm" (ngSubmit)="onaddTech(techForm)">
+                <div class="row my-3">
+                    <div class="col-4"></div>
+                    <div class="col-1">
+                        <label class="fw-bolder">Name</label>
+                    </div>
+                    <div class="col-2">
+                    <input type="text" formControlName="technologyname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.technologyname.errors }" placeholder="Add technology here" />
+                    <div *ngIf="(f.technologyname.touched || submitted) && f.technologyname.errors?.required" class="invalid-feedback">Technology Name is required</div></div>
+                    <div class="col-1">
+                        <button class="btn btn-dark">Add</button>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+        </form>
+    <div class="row">
+        <table class="table table-striped table-bordered table-responsive" >
+            <thead class="bg-dark">
+                <tr class="text-light text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Technology</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Material</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="technologies && technologies.length else notechnologies">
+                <tr class="text-center" *ngFor="let t of technologies;let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <td scope="row">{{t.technologyname}}</td>
+                    <td scope="row">                
+                        <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <bar-rating [rate]="t.rating" [max]="5" [theme]="'fontawesome-o'"></bar-rating>
+                        </div>
+                    </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-success mx-1" (click)="addMaterial(t.technologyid)">Add</button>
+                        <button class="btn btn-success mx-1" (click)="viewMaterial(t.technologyid)">View</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tr>
+                <ng-template #notechnologies>
+                    <th colspan="4" class="text-danger text-center py-5">No Technology Added !!</th>
+                </ng-template>
+            </tr>
+        </table>
+    </div>
+</div>

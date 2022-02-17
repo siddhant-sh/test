@@ -1,0 +1,174 @@
+<div class="modal-header">
+    <h5>Feedback Form</h5>
+</div>
+
+<div class="modal-body">
+    <form [formGroup]="feedbackForm" (ngSubmit)="onSend(feedbackForm)">
+        <table style="margin-left: 10%; text-align: left;">
+            <tr>
+                <td>1] Tutor communication skills/confidence/presentation.<span class="text-danger">*</span></td>
+                <td style="width: 10%;"></td>
+                <td><select id="question_1" name="question_1" formControlName="question_1" style="max-width : 500px;"
+                    [ngClass]="{ 'is-invalid': submitted && f.question_1.errors?.required }">
+                    <option value="5">Excellent</option>
+                    <option value="4">Good</option>
+                    <option value="3">Fair</option>
+                    <option value="2">Poor</option>
+                    <option value="1">Very poor</option>
+                    </select> 
+                    <div *ngIf="(f.question_1.touched || submitted) && f.question_1.errors?.required" class="invalid-feedback">
+                        Reponse is required
+                    </div>
+                </td>
+            </tr><br>
+            <tr>
+                <td>2] Tutor skill of linking subject to real life experience.<span class="text-danger">*</span></td>
+                <td></td>
+                <td><select id="question_2" name="question_2" formControlName="question_2" style="max-width : 500px;"
+                    [ngClass]="{ 'is-invalid': submitted && f.question_2.errors?.required }">
+                    <option value="5">Excellent</option>
+                    <option value="4">Good</option>
+                    <option value="3">Fair</option>
+                    <option value="2">Poor</option>
+                    <option value="1">Very poor</option>
+                    </select>
+                    <div *ngIf="(f.question_2.touched || submitted) && f.question_2.errors?.required" class="invalid-feedback">
+                        Response is required
+                    </div>
+                </td>
+            </tr><br>
+            <tr>
+                <td>3] Course content and coverage of the course.<span class="text-danger">*</span></td>
+                <td></td>
+                <td> <select id="question_3" name="question_3" formControlName="question_3" style="max-width : 500px;"
+                    [ngClass]="{ 'is-invalid': submitted && f.question_3.errors?.required }">
+                    <option value="5">Excellent</option>
+                    <option value="4">Good</option>
+                    <option value="3">Fair</option>
+                    <option value="2">Poor</option>
+                    <option value="1">Very poor</option>
+                    </select>
+                    <div *ngIf="(f.question_3.touched || submitted) && f.question_3.errors?.required" class="invalid-feedback">
+                        Response is required
+                    </div>
+                </td>
+            </tr><br>
+            <tr>
+                <td>4] Logical structure of the course by tutor.<span class="text-danger">*</span></td>
+                <td></td>
+                <td><select id="question_4" name="question_4" formControlName="question_4" style="max-width : 500px;"
+                    [ngClass]="{ 'is-invalid': submitted && f.question_4.errors?.required }">
+                    <option value="5">Excellent</option>
+                    <option value="4">Good</option>
+                    <option value="3">Fair</option>
+                    <option value="2">Poor</option>
+                    <option value="1">Very poor</option>
+                    </select>
+                    <div *ngIf="(f.question_4.touched || submitted) && f.question_4.errors?.required" class="invalid-feedback">
+                        Response is required
+                    </div>
+                </td>
+            </tr><br>
+            <tr>
+                <td>5] Tutor's knowledge as per given course.<span class="text-danger">*</span></td>
+                <td></td>
+                <td><select id="question_5" name="question_5" formControlName="question_5" style="max-width : 500px;"
+                    [ngClass]="{ 'is-invalid': submitted && f.question_5.errors?.required }">
+                    <option value="5">Excellent</option>
+                    <option value="4">Good</option>
+                    <option value="3">Fair</option>
+                    <option value="2">Poor</option>
+                    <option value="1">Very poor</option>
+                    </select>
+                    <div *ngIf="(f.question_5.touched || submitted) && f.question_5.errors?.required" class="invalid-feedback">
+                        Response is required
+                    </div>
+                </td>
+            </tr><br>
+            <tr>
+                <td>6] Ability to maintain the interest of participants.<span class="text-danger">*</span></td>
+                <td></td>
+                <td><select id="question_6" name="question_6" formControlName="question_6" style="max-width : 500px;"
+                    [ngClass]="{ 'is-invalid': submitted && f.question_6.errors?.required }">
+                    <option value="5">Excellent</option>
+                    <option value="4">Good</option>
+                    <option value="3">Fair</option>
+                    <option value="2">Poor</option>
+                    <option value="1">Very poor</option>
+                    </select>
+                    <div *ngIf="(f.question_6.touched || submitted) && f.question_6.errors?.required" class="invalid-feedback">
+                        Response is required
+                    </div>
+                </td>
+            </tr><br>
+            <tr>
+                <td>7] Appropriateness of training methods adapted by tutor.<span class="text-danger">*</span></td>
+                <td></td>
+                <td> <select id="question_7" name="question_7" formControlName="question_7" style="max-width : 500px;"
+                    [ngClass]="{ 'is-invalid': submitted && f.question_7.errors?.required }">
+                    <option value="5">Excellent</option>
+                    <option value="4">Good</option>
+                    <option value="3">Fair</option>
+                    <option value="2">Poor</option>
+                    <option value="1">Very poor</option>
+                    </select>
+                    <div *ngIf="(f.question_7.touched || submitted) && f.question_7.errors?.required" class="invalid-feedback">
+                        Response is required
+                    </div>
+                </td>
+            </tr><br>
+            <tr>
+                <td>8] pace of delivery.<span class="text-danger">*</span></td>
+                <td></td>
+                <td><select id="question_8" name="question_8" formControlName="question_8" style="max-width : 500px;"
+                    [ngClass]="{ 'is-invalid': submitted && f.question_8.errors?.required }">
+                    <option value="5">Excellent</option>
+                    <option value="4">Good</option>
+                    <option value="3">Fair</option>
+                    <option value="2">Poor</option>
+                    <option value="1">Very poor</option>
+                    </select>
+                    <div *ngIf="(f.question_8.touched || submitted) && f.question_8.errors?.required" class="invalid-feedback">
+                        Response is required
+                    </div>
+                </td>
+            </tr><br>
+            <tr>
+                <td>9] Problem solving abilities of tutor.<span class="text-danger">*</span></td>
+                <td></td>
+                <td><select id="question_9" name="question_9" formControlName="question_9" style="max-width : 500px;"
+                    [ngClass]="{ 'is-invalid': submitted && f.question_9.errors?.required }">
+                    <option value="5">Excellent</option>
+                    <option value="4">Good</option>
+                    <option value="3">Fair</option>
+                    <option value="2">Poor</option>
+                    <option value="1">Very poor</option>
+                    </select>
+                    <div *ngIf="(f.question_9.touched || submitted) && f.question_9.errors?.required" class="invalid-feedback">
+                        Response is required
+                    </div>
+                </td>
+            </tr><br>
+            <tr>
+                <td>10] Extent to which tutor helped in enhancing your skill sets.<span class="text-danger">*</span></td>
+                <td></td>
+                <td> <select id="question_10" name="question_10" formControlName="question_10" style="max-width : 500px;"
+                    [ngClass]="{ 'is-invalid': submitted && f.question_10.errors?.required }">
+                    <option value="5">Excellent</option>
+                    <option value="4">Good</option>
+                    <option value="3">Fair</option>
+                    <option value="2">Poor</option>
+                    <option value="1">Very poor</option>
+                    </select>
+                    <div *ngIf="(f.question_10.touched || submitted) && f.question_10.errors?.required" class="invalid-feedback">
+                        Response is required
+                    </div>
+                </td>
+            </tr><br>
+        </table>
+        <div class="modal-footer">
+            <button class="btn btn-success">Send</button>
+            <button (click)="onCancel()" class="btn btn-danger">Cancel</button>
+        </div>
+    </form>
+</div>

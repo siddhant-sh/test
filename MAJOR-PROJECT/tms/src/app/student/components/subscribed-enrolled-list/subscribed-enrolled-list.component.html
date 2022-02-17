@@ -1,0 +1,81 @@
+<div class="container-fluid px-0" style="text-align: center;">
+  <h3 class="header text-center mb-5 display-6 fw-bolder">SUBSCRIBED TUTORS</h3>
+  <div class="row">
+    <table class="table table-bordered table-striped table-responsive table-hover">
+      <thead class="bg-dark">
+        <tr class="text-light text-center">
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Specialization</th>
+          <th>Experience</th>
+          <th>Technology </th>
+          <th>Rating</th>
+          <th>Material</th>
+          <th>Feedback</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="tutorList && tutorList.length else notenrolledtutor">
+        <tr class="text-center" *ngFor="let el of tutorList;let i=index" class="text-center">
+          <th scope="row">{{i+1}}</th>
+          <th>{{el.tutor.username | uppercase}}</th>
+          <td>{{el.tutor.email}}</td>
+          <td>{{el.tutor.specialization}}</td>
+          <td>{{el.tutor.experience}}</td>
+          <td style="padding: 0;">
+            <table class="table table-bordered table-striped table-responsive" style="margin: 0;">
+              <tr *ngFor="let tech of el.technologies">
+                <td class="text-center" style="height: 50px;">{{tech.technologyname}}</td>
+              </tr>
+            </table>
+          </td>
+          <td style="padding: 0;">
+            <table class="table  table-bordered" style="margin: 0;">
+              <tr *ngFor="let tech of el.technologies; let j=index">
+                <td class="text-center" style="height: 50px;">
+                  <div hidden>{{j+1}}</div>
+
+                  <ngb-rating [max]="5" [(rate)]="tech.rating" (rateChange)="rateTechnology(i,j,$event)"></ngb-rating>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td style="padding: 0;">
+            <table class="table  table-bordered" style="margin: 0;">
+              <tr *ngFor="let tech of el.technologies">
+                <td class="text-center text-light" style="height: 50px;">
+                  <button class="btn" style="background-color:#198754;color:whitesmoke;" (click)="viewMaterial(tech.technologyid)">View
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <div *ngIf="el.rating > 0">
+              <div class="row">
+                <div class="col d-flex justify-content-center">
+              <bar-rating [rate]="el.rating" [max]="5" [theme]="'fontawesome-o'"></bar-rating>
+              </div>
+              </div>
+              <div class="row">
+              <div class="col">
+                {{el.rating}}
+              </div>
+            </div>
+            </div>
+            <div *ngIf="el.rating === 0">
+              <button class="btn btn-primary"
+                (click)="onFeedback(el.tutor.username,el.tutor.id)">Feedback</button>
+            </div>
+          </td>
+
+        </tr>
+      </tbody>
+      <tr>
+        <ng-template #notenrolledtutor>
+          <th colspan="9" class="text-danger text-center py-5">No Subscribed Tutors !!</th>
+        </ng-template>
+      </tr>
+    </table>
+  </div>
+</div>

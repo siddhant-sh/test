@@ -1,0 +1,74 @@
+<div class="container-fluid px-0 my-3" style="text-align: center;">
+  <h3 class="header text-center mb-5 display-6 fw-bolder">PENDING ENROLLMENTS</h3>
+  <div class="row">
+    <table class="table table-dark table-hover ">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Specialization</th>
+          <th>Experience</th>
+          <th>Technology </th>
+          <th>Rating</th>
+          <th>Requested on </th>
+        </tr>
+      </thead>
+      <tbody *ngIf="pendingenrolledlist && pendingenrolledlist.length else nopendingenrolledtutor">
+        <tr *ngFor="let el of pendingenrolledlist;let i=index">
+          <th scope="row">{{i+1}}</th>
+          <th>{{el.belongsToTutor.username| uppercase}}</th>
+          <td>{{el.belongsToTutor.email}}</td>
+          <td>{{el.belongsToTutor.specialization}}</td>
+          <td>{{el.belongsToTutor.experience}}</td>
+          <td>{{el.belongsToTechnology.technologyname}}</td>
+          <td>{{el.belongsToTechnology.rating}}</td>
+          <td>{{el.createdon}}</td>
+        </tr>
+      </tbody>
+      <tr>
+        <ng-template #nopendingenrolledtutor>
+          <th colspan="8" class="text-danger text-center py-5">No Pending Request !!</th>
+        </ng-template>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="container-fluid px-0 my-3" style="text-align: center;">
+  <h3 class="header text-center mb-5 display-6 fw-bolder">REJECTED ENROLLMENTS</h3>
+  <div class="row">
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Specialization</th>
+          <th>Experience</th>
+          <th>Technology </th>
+          <th>Rating</th>
+          <th>Requested on </th>
+
+        </tr>
+      </thead>
+      <tbody *ngIf="rejectedenrolledlist && rejectedenrolledlist.length else notrejectedtutor">
+        <tr *ngFor="let el of rejectedenrolledlist;let i=index">
+          <th scope="row">{{i+1}}</th>
+          <th>{{el.belongsToTutor.username | uppercase}}</th>
+          <td>{{el.belongsToTutor.email}}</td>
+          <td>{{el.belongsToTutor.specialization}}</td>
+          <td>{{el.belongsToTutor.experience}}</td>
+          <td>{{el.belongsToTechnology.technologyname}}</td>
+          <td>{{el.belongsToTechnology.rating}}</td>
+          <td>{{el.createdon}}</td>
+        </tr>
+      </tbody>
+      <tr>
+        <ng-template #notrejectedtutor>
+          <th colspan="8" class="text-danger text-center py-5">No Rejected Request !!</th>
+        </ng-template>
+      </tr>
+    </table>
+  </div>
+</div>

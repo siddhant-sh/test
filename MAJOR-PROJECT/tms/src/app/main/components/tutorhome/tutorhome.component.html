@@ -1,0 +1,29 @@
+<div class="container-fluid px-0">
+    <div class="row">
+        <div class="col-2 px-0 bg-dark"> 
+            <nav class="navbar navbar-dark bg-dark border border-light my-1">
+                <ul class="navbar-nav w-100 text-center">
+                    <div class="border-bottom py-3">
+                        <h4 class="text-light">Tutor Dashboard</h4>
+                    </div>
+                    <li class="nav-item border-bottom py-2 my-2">
+                        <a class="nav-link" routerLink="/tutorhome/tutor/technology">Add Technology/Material</a>
+                    </li>
+                    <li class="nav-item border-bottom py-2 my-2">
+                        <a class="nav-link" routerLink="/tutorhome/tutor/enrolledstudentlist">Enrolled Students</a>
+                    </li>
+                    <li class="nav-item border-bottom py-2 my-2">
+                        <a class="nav-link" routerLink="/tutorhome/tutor/pendingstudentenrollrequest">Pending Enroll Students</a>
+                    </li>
+                    <li class="nav-item py-2 my-2">
+                        <a class="nav-link" routerLink="/tutorhome/tutor/profile">Profile</a>
+                    </li>
+                </ul>
+                </nav>
+        </div>
+        <div class="col-10 dashboardContent text-center pt-5">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

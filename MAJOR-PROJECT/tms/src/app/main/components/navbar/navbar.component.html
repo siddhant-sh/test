@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar menubg">
+  <div class="container-fluid px-5" id="Home">
+    <a href="index.html" class="navbar-brand"><img src="../../../../assets/images/logo.png" alt="TMS" width="50px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <em class="fal fa-grip-lines"></em>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+      <ul class="navbar-nav mr-auto w-100 justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'active':welcome}" [routerLink]="home">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="isLogged == false">
+          <a class="nav-link" [ngClass]="{'active':login}" routerLink="/auth/login">Login</a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="isLogged == false">
+          <a class="nav-link dropdown-toggle" [ngClass]="{'active':register}" id="navbarDarkDropdownMenuLink"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">Register</a>
+          <ul class="dropdown-menu dropdown-menu-dark text-center" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" routerLink="/auth/registertutor">Tutor</a></li>
+            <li><a class="dropdown-item" routerLink="/auth/registerstudent">Student</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'active':about}" href="#About">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'active':contact}" href="#contact">Contact Us</a>
+        </li>
+          <li class="nav-item" *ngIf="isLogged == true">
+            <a class="nav-link" (click)="logout()" href="/auth/login">Logout</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

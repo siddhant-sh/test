@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 px-0 bg-dark"> 
+            <nav class="navbar navbar-dark bg-dark border border-light my-1">
+                <ul class="navbar-nav w-100 text-center">
+                    <div class="border-bottom py-3">
+                        <h4 class="text-light">Student Dashboard</h4>
+                    </div>
+                    <li class="nav-item border-bottom py-2 my-2">
+                        <a class="nav-link" routerLink="/studenthome/student/tutorList">Enroll Tutor</a>
+                    </li>
+                    <li class="nav-item border-bottom py-2 my-2">
+                        <a class="nav-link" routerLink="/studenthome/student/subscribedenrolledlist">Enrolled Tutors</a>
+                    </li>
+                    <li class="nav-item border-bottom py-2 my-2">
+                        <a class="nav-link" routerLink="/studenthome/student/enrolledlist">Enroll Pending Tutors</a>
+                    </li>
+                    <li class="nav-item py-2 my-2">
+                        <a class="nav-link" routerLink="/studenthome/student/profile">Profile</a>
+                    </li>
+                </ul>
+                </nav>
+
+        </div>
+        <div class="col-10 dashboardContent text-center pt-5">
+            
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

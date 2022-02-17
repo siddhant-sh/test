@@ -1,0 +1,53 @@
+<div class="container">
+    <h3 class="header text-center mb-5 display-6 fw-bolder">PROFILE DETAILS</h3>
+    <div class="row d-flex justify-content-center w-50 mx-auto bg-dark py-5">
+        <div class="row">
+            <div class="col-sm">
+                <label>Name</label>
+            </div>
+            <div class="col-sm">
+                <p>{{username}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <label>Email</label>
+            </div>
+            <div class="col">
+                <p>{{email}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Gender</label>
+            </div>
+            <div class="col">
+                <p>{{gender}} </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Specialization</label>
+            </div>
+            <div class="col">
+                <p>{{specialization}} </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Experience</label>
+            </div>
+            <div class="col">
+                <p>{{experience}} </p>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center mt-3">
+            <div class="col">
+                <button (click)="onUpdateProfile(username,email,specialization,experience)" class="btn btn-success fs-6">Update Profile</button>
+            </div>
+            <div class="col">
+                <button (click)="onChangePassword()" class="btn btn-success fs-6">Change Password</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<h3 class="header text-center mb-5 display-6 fw-bolder">ADD MATERIAL</h3>
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <form [formGroup]="materialForm" (ngSubmit)="onAddMaterial(materialForm)" class="bg-dark p-5">
+                <div class="form-group">
+                    <label class="my-3 fw-bold text-light">Name</label>
+                    <input type="text" formControlName="fileName" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.fileName.errors }" placeholder="Enter File Name" />
+                    <div *ngIf="(f.fileName.touched || submitted) && f.fileName.errors?.required"
+                        class="invalid-feedback">Material Name
+                        is required</div>
+    
+                </div>
+                <div class="form-group">
+                    <label class="my-3 fw-bold text-light">Upload File</label>
+                    <input type="file" formControlName="file" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.file.errors }" (change)="onFileChange($event)" />
+                    <div *ngIf="(f.file.touched || submitted) && f.file.errors?.required"
+                        class="invalid-feedback">Please Select a File</div>
+    
+                </div>
+                <div class="form-group mt-5">
+                    <button class="btn btn-success">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>

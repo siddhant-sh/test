@@ -1,0 +1,36 @@
+<h3 class="header text-center mb-5 display-6 fw-bolder">TUTOR MATERIAL</h3>
+<table class="table table-striped table-responsive">
+    <thead class="bg-dark">
+        <tr class="text-light text-center">
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Technology</th>
+            <th scope="col">Type</th>
+            <th scope="col">Size</th>
+            <th scope="col">Uploaded On</th>
+            <th scope="col">Download count</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="materialList && materialList.length else notmaterial">
+        <tr class="text-center" *ngFor="let m of materialList;let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td scope="row">{{m.fileName}}</td>
+            <td scope="row">{{m.belongsTechnology.technologyname}}</td>
+            <td scope="row">{{m.fileType}}</td>
+            <td scope="row">{{m.fileSize}}</td>
+            <td scope="row">{{m.uploadedon}}</td>
+            <td scope="row">{{m.downloadCount}}</td>
+            <td>
+                <button class="btn btn-success"
+                    (click)="downloadMaterial(m.materialid,i)">Download</button>
+            </td>
+        </tr>
+    </tbody>
+    <tr>
+        <ng-template #notmaterial>
+            <th colspan="8" class="text-danger text-center py-5">No Material Added !!</th>
+        </ng-template>
+    </tr>
+
+</table>

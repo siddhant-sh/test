@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-10 my-2">
+        <h3 class="header text-center mb-5 display-6 fw-bolder">TUTOR LIST</h3>
+    </div>
+    <div class="col-2 my-2">
+        <div style="text-align: right;">Search: <input type="text" [(ngModel)]="search">
+        </div>
+    </div>
+
+
+    <table class="table table-striped table-responsive">
+        <thead class="bg-dark">
+            <tr class="text-light text-center">
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Specialization</th>
+                <th>Experience</th>
+                <th>Technology</th>
+                <th>Rating</th>
+                <th>Feedback</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody *ngIf="enrollTutList && enrollTutList.length else notenrolledtutor">
+            <tr class="text-center" *ngFor="let tutor of enrollTutList | searchByNameAndTechnology : search;let i=index">
+                <th>{{i+1}}</th>
+                <th>{{tutor.tutor.belongsToTutor.username | uppercase}}</th>
+                <td>{{tutor.tutor.belongsToTutor.email}}</td>
+                <td>{{tutor.tutor.belongsToTutor.specialization}}</td>
+                <td>{{tutor.tutor.belongsToTutor.experience}}</td>
+                <td>{{tutor.tutor.technologyname}}</td>
+                <td>{{tutor.tutor.rating}}</td>
+                <td>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <bar-rating [rate]="tutor.feedback" [max]="5" [theme]="'fontawesome-o'"></bar-rating>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button (click)="onEnroll(tutor.tutor.belongsToTutor.id,tutor.tutor.technologyid)"
+                        class="btn btn-sm btn-warning">Enroll</button>
+                </td>
+            </tr>
+        </tbody>
+        <tr>
+            <ng-template #notenrolledtutor>
+                <th colspan="8" class="text-danger text-center py-5">No Tutors Found !!</th>
+            </ng-template>
+        </tr>
+    </table>

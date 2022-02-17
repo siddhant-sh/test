@@ -1,0 +1,26 @@
+
+.form-register{
+    width: 100%;
+    max-width: 500px;
+    padding: 5%;
+    margin: 4% auto; 
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.rounded-corner{
+    border-radius: 15px;
+}
+.head-title {
+    font-size: 50px;
+    float: right;
+    line-height: 100%;
+    font-weight: bold;
+}
+.heading{
+padding:20% 0% 20% 15%;
+}
+.container-fluid{
+    height: 100%;
+    max-height: 100vh;
+    background: linear-gradient(95deg, #f05756 40%,#fbcf34  100%);
+}
